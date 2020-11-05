@@ -40,7 +40,7 @@ const App = () => {
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                 />
-                <ul role="region" aria-live="polite">
+                <ul>
                     {filteredPosts.map((post) => (
                         <li key={post.id}>{post.name}</li>
                     ))}
