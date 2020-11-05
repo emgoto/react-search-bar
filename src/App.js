@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Search from './search';
+import Announcer from './announcer';
 
 const posts = [
     { id: '1', name: 'This first post is about React' },
@@ -28,18 +30,23 @@ const App = () => {
     const filteredPosts = filterPosts(posts, searchQuery);
 
     return (
-        <div className="App">
-            <img src={logo} className="App-logo" alt="logo" />
-            <Search
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
-            />
-            <ul>
-                {filteredPosts.map((post) => (
-                    <li key={post.id}>{post.name}</li>
-                ))}
-            </ul>
-        </div>
+        <Router>
+            <div className="App">
+                <Announcer
+                    message={`${filteredPosts.length} posts`}
+                />
+                <img src={logo} className="App-logo" alt="logo" />
+                <Search
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                />
+                <ul role="region" aria-live="polite">
+                    {filteredPosts.map((post) => (
+                        <li key={post.id}>{post.name}</li>
+                    ))}
+                </ul>
+            </div>
+        </Router>
     );
 };
 
