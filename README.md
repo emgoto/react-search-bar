@@ -1,6 +1,5 @@
 # react-search-bar
-
-This is the accompanying repository for my post on building a [React search bar component](emgoto.com/react-search-bar).
+This is the source code for my post on building a [React search bar component](emgoto.com/react-search-bar).
 
 ![](./images/react-search-bar.gif)
 
